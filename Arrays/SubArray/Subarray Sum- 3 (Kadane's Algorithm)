@@ -1,0 +1,32 @@
+// To find out the largest sum of the subarray, kadane's algorithm is best as it runs in order on n time complexity 
+// Approach - Iterate over the array and find out the sum of the consecutive elements where if the sum we get is negative then we assume that as zero and the find out the largest sum 
+
+#include <iostream>
+using namespace std;
+
+int kadaesAlgorithm(int arr[], int n){
+    int cs = 0; // current sum 
+    int largestSum = 0;
+    for(int i=0; i<n; i++){
+        cs += arr[i];
+        if(cs < 0){
+            cs = 0;
+        }
+        largestSum = max(largestSum, cs);
+    }
+    return largestSum;
+}
+
+int main() {
+    int arr[] = {-2, 1, 2,3 -4, 2, -12, 11};
+    int n = sizeof(arr)/sizeof(int);
+    
+    for(int i=0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    
+    cout<<" the largest sum of the subarray of the given array is :"<<kadaesAlgorithm(arr, n);
+    
+    return 0;
+}
