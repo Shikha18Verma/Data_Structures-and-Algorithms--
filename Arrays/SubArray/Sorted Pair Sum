@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+ pair<int, int> closestSum(vector<int> arr, int x){
+    int l=0;
+    int h=arr.size()-1;
+    int current_sum;
+    int closest_sum;
+    pair<int, int> p = make_pair(arr[l], arr[h]);
+    closest_sum = p.first + p.second;
+	while(l < h){
+		current_sum = arr[l] + arr[h];
+		if(current_sum==x){
+                        p.first = arr[l];
+                        p.second = arr[h];
+			return p;
+		}
+		else{
+			
+			if(abs(closest_sum-x) >= abs(current_sum-x)){
+				p.first = arr[l];
+				p.second = arr[h];
+				closest_sum = current_sum;
+			}
+			
+			if(current_sum < x)
+			l++;
+			else 
+			h--;
+		}
+	}
+	
+	return p;
+}
