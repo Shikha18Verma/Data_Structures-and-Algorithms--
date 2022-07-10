@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int lowerBound(vector <int> A, int Val){
+   
+  int l = 0, h = A.size() - 1;
+	
+  int mid;
+	
+  while(l <= h){
+	
+  mid = (l+h)/2;
+		
+    if(A[mid] == Val)  //Val exists in the array
+		
+    return Val;  
+
+		if(A[mid] > Val){
+		
+    h = mid - 1;       //Val is less than A[mid]
+		
+    }
+		
+    else if(A[mid] < Val){
+			
+      l = mid + 1;     //Val is greater than A[mid]
+		}
+		
+	}
+	
+  if(l==0 && A[0] > Val)
+		
+    return -1;         //Val is even lesser than the first element of the sorted array(smallest element of the array)
+		
+    else 
+		
+    return A[h];       //Lower bound of the Val
+}
+
+int main() {
+   
+   vector <int> A;
+   
+   A.push_back(2);
+   
+   A.push_back(5);
+   
+   A.push_back(8);
+   
+   A.push_back(12);
+    
+for(int i=0; i< A.size(); i++){
+	
+  cout<<A[i]<<" ";
+	
+  } 
+	
+  cout<<endl;
+	
+  int Val;
+	
+  cout<<" enter any value ";
+	
+  cin>>Val;
+	
+  cout<<"lower bound of the "<<Val<<" is "<<lowerBound(A, Val);
+	
+  return 0;
+
+}
