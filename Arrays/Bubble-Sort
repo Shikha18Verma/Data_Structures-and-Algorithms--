@@ -1,0 +1,23 @@
+// BUBBLE SORT 
+
+#include<iostream>
+
+using namespace std;
+
+void bubbleSort(int arr[], int n){
+
+    for(int times=0; times<=n-1; times++){
+
+        for(int j=0; j<n-times-1; j++){
+
+            if(arr[j+1] > arr[j]){
+
+                swap(arr[j+1] , arr[j]);
+
+            }
+
+        }
+
+    }
+
+}
