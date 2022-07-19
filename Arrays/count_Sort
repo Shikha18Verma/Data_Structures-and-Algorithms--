@@ -1,0 +1,38 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+void counting_sort(int arr[], int n){
+    //Largest element 
+    int largest = -1;
+    for(int i=0; i<n; i++){
+        largest = max(largest, arr[i]);
+    }
+    //Create a count array that will be dynamic as we the size of this array was not known in the begning 
+    vector<int> freq(largest+1,0);  //size largest+1 and initialzing it with0 
+    //Update the frequency array
+    for(int i=0; i<n; i++){    //we will iterate the original array and jo bhi particular value aaegi vaha freq wale array m +1 incrementation ho jaega 
+        freq[arr[i]]++;
+    }
+    
+    //Put back the elements from freq array to original array (in sorted manner)
+    int j=0; 
+    for(int i=0; i<=largest; i++){
+        while(freq[i]>0){
+            arr[j] = i;
+            freq[i]--;
+            j++;
+        }
+    }
+    return;
+}
+int main()
+{
+    int arr[] = {88,19,97,12,66,3,13};
+    int n = sizeof(arr)/sizeof(int);
+    counting_sort(arr, n);
+    for(auto x: arr){
+        cout<<x<<" ";
+    }
+    cout<<endl;
+    return 0;
+}
