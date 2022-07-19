@@ -1,0 +1,23 @@
+// Inbuit comparator for sorting in C++ we return the sorted array but in reverse order
+
+#include<iosteram>
+
+#include<algorithm>
+
+using namespace std;
+
+int main(){
+
+   int arr[] = {2,1,9,3,6,4,10};
+   
+   int n = sizeof(arr)/sizeof(int);
+   
+   sort(arr, arr+n, greater<int>());
+   
+   for(auto x: arr){
+   
+   cout<<x<<" ";
+   
+   }
+   
+   }
