@@ -1,0 +1,17 @@
+#include <iostream>
+#include<string>
+using namespace std;
+int main() {
+   char sentence[100];
+   int len =0;
+   char temp = cin.get();
+   while(temp != '#'){
+       sentence[len++] = temp;
+       temp = cin.get();
+   }
+   sentence[len] ='\0';
+   cout<<"length ="<<len;
+   cout<<"\nsentence:"<<sentence<<endl;
+
+    return 0;
+}
