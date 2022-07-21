@@ -1,0 +1,26 @@
+#include<iosteram>
+
+using namespace std;
+
+int main()
+
+{
+
+char sentence[100];
+
+cin.getline(sentence, 100);
+
+cout<<sentence<<endl;
+
+}
+
+// by this code the sentence will stop printing when it will get first full stop
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    char paragraph[1000];
+    cin.getline(paragraph, 1000, '.');
+    cout<<paragraph;
+}
