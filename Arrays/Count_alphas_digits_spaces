@@ -1,0 +1,29 @@
+//Program to count the number of alphabets, digits and blank spaces in any input sentence.
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main(){
+    char sentence[100];
+    //for count 
+    int digits = 0;
+    int alphas = 0;
+    int spaces = 0;
+    
+    char ch = cin.get();
+    while(ch != '\n'){
+        if(ch>='0' and ch<='9'){
+            digits++;
+        }
+        else if((ch>='a' and ch<='z') or (ch>='A' and ch<='Z')){
+            alphas++;
+        }
+        else if(ch ==' ' or ch=='\t'){
+            spaces++;
+        }
+        
+        ch = cin.get();
+    }
+    std::cout<<"The number of alphabets are "<<alphas<<"\nThe number of digits are "<<digits<<"\nand The number of spaces and blacks are"<<spaces;
+}
