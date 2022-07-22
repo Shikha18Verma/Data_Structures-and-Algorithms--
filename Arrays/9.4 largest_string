@@ -1,0 +1,28 @@
+//in this code we have to find a sentence of longest length 
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n; //number of sentences 
+    
+    cin.get(); //as first of all we will given number as input after that one new line will come which will consume by the ci.get()
+    
+    char sentence[1000];
+    char largest[1000];
+    
+    int largest_len = 0;
+    
+    while(n--){
+        cin.getline(sentence, 1000);
+        // together we will cout the sentence entered by the user 
+        int len = strlen(sentence);
+        if(len>largest_len){
+            largest_len = len;
+            strcpy(largest, sentence);
+        }
+    }
+    cout<<"the largest sentence is : "<<largest;
+    return 0;
+}
