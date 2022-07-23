@@ -1,1 +1,23 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+ 
+int main() {
+    // your code goes here
+    char a[100]="apple";
+    char b[100];
+    cout<<"Length: "<< strlen(a) <<endl;
+    strcpy(b,a);
+    cout<<"Copied: "<< b<<endl;
+    cout<<"Comparison: "<<strcmp(a,b)<<endl;
+    char web[]="www.";
+    char domain[]="codingminutes.com";
+    cout<<"Concatenation: "<<strcat(web,domain)<<endl;
+    cout<<"Copied: "<< strcpy(b, strcat(web, domain))<<endl;
+    cout<<"Comparison: "<<strcmp(a,b)<<endl;
+    cout<<"Comparison: "<<strcmp(b,a)<<endl;
+    
+    
+    return 0;
+}
 
