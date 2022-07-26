@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool sort(string A, string B){
+     sort(A.begin(), A.end());
+     sort(B.begin(), B.end());
+    if(A == B){
+        return true;
+    }
+    return false;
+}
+int main()
+{
+    string str1 = "abcd";
+    string str2 = "duac";
+    cout<<"Both the strings are palindrome :"<<sort(str1, str2);
+    return 0;
+}
