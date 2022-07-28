@@ -1,0 +1,51 @@
+// spiral print 
+#include<iostream>
+using namespace std;
+int spiralPrint(int arr[][10], int n, int m){
+    int startRow = 0;
+    int endRow = n-1;
+    int startCol = 0;
+    int endCol = m-1;
+    
+    //outer loop - traverse array boundary 
+    while(startCol <= endCol and startRow <= endCol){
+        //startRow 
+        for(int col= startCol; col<=endCol; col++){
+            cout<<arr[startRow][col]<<" ";
+        }
+        //end Column
+        for(int row= startRow+1; row<=endRow; row++){
+            cout<<arr[row][endCol]<<" ";
+        }
+        //end Row 
+        for(int col=endRow-1; col>= startCol; col--){
+            // this will avoid the printing of the same elements twice when the no. of startrow and endcol will become equal
+            if(startRow == endRow){
+                break;
+            }
+            cout<<arr[endRow][col]<<" ";
+        }
+        //start column
+        for(int row= endCol -1; row>= startCol+1;row--){
+            if(startCol == endCol){  //this will avoid duplicate printing of the elements
+                break;
+            }
+            cout<<arr[row][startCol]<<" ";
+        }
+        //update the variables to point to the inner spiral 
+        startRow++;
+        endRow--;
+        startCol++;
+        endCol--;
+        
+    }
+   return 0; 
+}
+
+int main()
+{
+    int arr[10][10] = {{1,2,3,4},{12,13,14,5},{11,16,15,6},{10,9,8,7}};
+    int n=4, m=4;
+    spiralPrint(arr, n, m);
+    
+}
