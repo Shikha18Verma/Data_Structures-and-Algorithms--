@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main() {
+//   making a 2D array
+char numbers[][10] = {
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "hundred",
+};
+int n = 7;
+for(int i=0; i<7; i++){
+    cout<<numbers[i]<<" ";
+}
+cout<<endl;
+cout<<numbers[2]<<endl;
+cout<<numbers[2][2];
+return 0;
+}
