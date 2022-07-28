@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+ vector<int> WavePrint(int m, int n, vector<vector<int>> arr)
+{
+   int startRow = 0;
+   int endRow = m-1;
+   int startCol = 0;
+   int endCol = n-1;
+   vector<int> res;
+   
+   while(startCol <= endCol){
+       for(int row= startRow; row<= endRow; row++){
+           res.push_back(arr[row][endCol]);
+       }
+       endCol--;
+       if(startCol <= endCol){
+           for(int row = endRow; row>= startRow; row--){
+               res.push_back(arr[row][endCol]);
+           }
+           endCol--;
+       }
+   }
+   return res;
+}
