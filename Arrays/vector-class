@@ -59,6 +59,9 @@ class Vector{
     int capacity(){
         return ms;
     }
+    int operator[](int i){
+      return arr[i];
+    }
 
 };
 
@@ -98,6 +101,12 @@ int main()
     v.at(i);
     cout<<"size: "<<v.size()<<endl;
     cout<<"capacity: "<<v.capacity();
+    
+    //printing all the element 
+    for(int i=0; i<v.size(); i++){
+      cout<<v[i]<<",";
+    }
+    cout<<endl;
     return 0;
 
 }
