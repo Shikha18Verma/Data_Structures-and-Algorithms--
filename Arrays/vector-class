@@ -1,0 +1,103 @@
+ #include<iostream>
+using namespace std;
+
+class Vector{
+    //Data Members
+    int *arr;
+    int cs;  //current size 
+    int ms; // maximum size- capacity
+
+    //Constructors, Destructors, Methods
+    public:
+    Vector(int max_size = 1){    //default constructor
+       cs=0; 
+       ms=max_size;
+       arr = new int[ms];
+    }
+
+    void push_back(int d){
+        //two cases 
+        if(cs==ms){
+            //create the new array and delete the old one, and double the capacity
+            int *oldArr = arr;
+            ms = 2*ms;
+            arr = new int[ms];
+            //copy the elements
+            for(int i=0; i<cs; i++){
+                arr[i] = oldArr[i];
+            }
+            delete [] oldArr;
+
+        }
+        arr[cs] = d;
+        cs++;
+    }
+    void pop_back(){
+        if(cs >= 0){
+            cs--;
+        }
+        bool isEmpty()
+        {
+            cs==0;
+        }
+    }
+    //function to get first, last and the element at the ith index
+    int front(){
+        return arr[0];
+    }
+    int last(){
+        return arr[cs-1];
+    }
+    int at(int i){
+        return arr[i];
+    }
+    //function for current size
+    int size(){
+        return cs;
+    }
+    //function for capacity
+    int capacity(){
+        return ms;
+    }
+
+};
+
+int main()
+{
+    Vector v;
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
+    v.push_back(4);
+    v.push_back(5);
+     
+   
+    cout<<"size and capacity of the vector array before any operation:"<<endl;
+    cout<<"size: "<<v.size()<<endl;
+    cout<<"capacity: "<<v.capacity();
+
+    cout<<"inserting the element at the back of the array:"<<endl;
+    v.push_back(6);
+    v.push_back(7);
+   
+    cout<<"size: "<<v.size()<<endl;
+    cout<<"capacity: "<<v.capacity();
+    cout<<endl;
+
+    cout<<"popping out the last inserted element: "<<endl;
+  
+    cout<<"size: "<<v.size()<<endl;
+    cout<<"capacity: "<<v.capacity();
+    cout<<endl;
+    cout<<"first element: "<<v.front()<<endl;
+    cout<<"last element: "<<v.last()<<endl;
+
+    int i;
+    cout<<"Enter the index no. whose value you want to print :";
+    cin>>i;
+    v.at(i);
+    cout<<"size: "<<v.size()<<endl;
+    cout<<"capacity: "<<v.capacity();
+    return 0;
+
+}
