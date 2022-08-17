@@ -1,0 +1,34 @@
+//solving a problem in which using the complex vector( arranging the students according to their total marks obtained in range)
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<string>
+using namespace std; 
+
+int calTotalMarks(vector<int> marks)
+{
+    return marks[0] + marks[1] + marks[2];
+}
+
+bool compare(pair<string, vector<int>> s1, pair<string,vector<int>> s2 ){
+    vector<int> m1 = s1.second;
+    vector<int> m2 = s2.second;
+    return calTotalMarks(m1) > calTotalMarks(m2);
+        
+}
+int main() 
+{
+    vector<pair<string, vector<int>>> students_marks = {
+        {"shikha",{12,22,21}},
+        {"sonu", {23,43,26}},
+        {"vanshu", {43,65,67}},
+        {"shivam", {67,98,76}}
+    };
+    
+    sort(students_marks.begin(), students_marks.end(), compare);
+    for(auto s : students_marks){
+        cout<<s.first<<" "<<calTotalMarks(s.second)<<endl;
+    }
+    
+    return 0;
+}
