@@ -1,0 +1,20 @@
+//Given a vector of pairs representing coordinates x and y of different cabs on a X-Y plane. 
+//Sort them according to their distance from the origin in the non-decreasing order i.e. the cab with shortest distance from the origin will be at first.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<pair<int,int>> sortCabs(vector<pair<int,int>> v){
+    for(int i=0; i<v.size(); i++){
+        int min_position = i;
+        for(int j=i; j<v.size(); j++){
+            int o = (v[j].first*v[j].first) + (v[j].second*v[j].second);
+            int p = (v[min_position].first*v[min_position].first) + (v[min_position].second*v[min_position].second);
+            if(o<p){
+                min_position = j;
+            }
+        }
+        swap(v[min_position], v[i]);
+    }
+    return v;
+}
