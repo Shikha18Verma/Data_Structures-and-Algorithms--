@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<vector<int>> makeZeroes(vector<vector<int>> &matrix)
+{
+    int n = matrix.size();
+    int m = matrix[0].size();
+    
+    unordered_set<int> rows;
+    unordered_set<int> cols;
+    
+    for(int i=0; i<n; i++){
+        for(int j=0; j<m; j++){
+            if(!matrix[i][j]){
+                rows.insert(i);
+                cols.insert(j);
+            }
+        }
+    }
+    for(auto x: rows){
+        for(int j=0; j<m; j++)
+        matrix[x][j] = 0; 
+    }
+    for(auto x: cols){
+        for(int i=0; i<n; i++)
+        matrix[i][x] = 0;
+    }
+    return matrix;
+}
+int main() {
+    vector<vector<int>> arr = {{1,2,3,4},{4,3,2,0},{3,2,4,6},{0,8,1,2}};
+    cout<<"matrix before:"<<endl;
+    for(auto x: arr){
+        for(auto y: x)cout<<y<<" ";
+        cout<<endl;
+    }
+    makeZeroes(arr);
+    cout<<"matrix after:"<<endl;
+    for(auto x: arr){
+        for(auto y: x)cout<<y<<" ";
+        cout<<endl;
+    }
+    return 0;
+}
