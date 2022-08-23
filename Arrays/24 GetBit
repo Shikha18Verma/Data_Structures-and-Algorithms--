@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int clearBit(int n, int i)
+{
+    int mask = ~(1<<i);
+    return n & mask;
+}
+int main()
+{
+    int n = 5;
+    int i = 2;
+    // i have to clear the ith bit of the number and change it with its opposite
+    cout<<"the number after changing the " <<i<<"th bit is "<<clearBit(n, i);
+    return 0;
+}
